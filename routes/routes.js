@@ -5,7 +5,7 @@ const mongoose = require("../config/mongoose");
 const carro = require("../config/carro")
 
  router.get("/cars", (request, response) => {
-  connection.query("SELECT * FROM cars_example", (error, results) => {
+  connection.query("SELECT * FROM veiculos", (error, results) => {
     if (error) {
        console.error("Erro ao selecionar carros:", error);
       response.sendStatus(500);
@@ -18,7 +18,7 @@ const carro = require("../config/carro")
 router.get("/cars/:id", (request, response) => {
   const id = parseInt(request.params.id);
  connection.query(
-     "SELECT * FROM cars_example WHERE id = ?",
+     "SELECT * FROM veiculos WHERE id = ?",
      [id],
    (error, results) => {
       if (error) {
@@ -37,7 +37,7 @@ router.get("/cars/:id", (request, response) => {
 
 router.post("/cars", (request, response) => {
   const car = request.body;
-   connection.query("INSERT INTO cars_example SET ?", car, (error, results) => {
+   connection.query("INSERT INTO veiculos SET ?", car, (error, results) => {
     if (error) {
        console.error("Erro ao inserir carro:", error);
       response.sendStatus(500);
@@ -51,7 +51,7 @@ router.post("/cars", (request, response) => {
   const id = parseInt(request.params.id);
    const car = request.body;
    connection.query(
-     "UPDATE cars_example SET ? WHERE id = ?",
+     "UPDATE veiculos SET ? WHERE id = ?",
     [car, id],
     (error, results) => {
       if (error) {
@@ -67,7 +67,7 @@ router.post("/cars", (request, response) => {
  router.delete("/cars/:id", (request, response) => {
   const id = parseInt(request.params.id);
   connection.query(
-     "DELETE FROM cars_example WHERE id = ?",
+     "DELETE FROM veiculos WHERE id = ?",
      [id],
      (error, results) => {
        if (error) {

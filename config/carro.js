@@ -11,7 +11,7 @@ const carroSchema = new mongoose.Schema({
 const Carro = mongoose.model('Carro', carroSchema);
 
 
-const exemplosCarros = [
+const example_cars = [
     { modelo: 'Corolla', ano: 2022, valor: 90000, fabricante: 'Toyota' },
     { modelo: 'Civic', ano: 2021, valor: 85000, fabricante: 'Honda' },
     { modelo: 'Onix', ano: 2023, valor: 75000, fabricante: 'Chevrolet' },
@@ -22,9 +22,9 @@ const exemplosCarros = [
     { modelo: 'Renegade', ano: 2022, valor: 95000, fabricante: 'Jeep' }
 ];
 
-async function inserirCarros() {
+async function inserirNovosCarros() {
     try {
-        await Carro.insertMany(exemplosCarros);
+        await Carro.insertMany(example_cars);
         console.log('Exemplos de carros adicionados com sucesso!');
     } catch (err) {
         console.error('Erro ao inserir exemplos de carros:', err);
@@ -35,8 +35,8 @@ async function inserirCarros() {
 mongoose.connect('mongodb://localhost:27017/desafio-cars', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Conexão com o MongoDB estabelecida com sucesso');
-        inserirCarros();
+        inserirNovosCarros();
     })
-    .catch(err => console.error('Erro ao conectar com o MongoDB:', err));
+    .catch(err => console.error('Erro ao conectar com o MongoDB:', error));
 
 module.exports = Carro; 

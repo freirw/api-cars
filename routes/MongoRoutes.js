@@ -10,7 +10,7 @@ router.get('/carros', async (req, res) => {
         const carros = await Carro.find();
         res.json(carros);
     } catch (err) {
-        console.error('Erro ao obter carros:', err);
+        console.error('Erro ao obter carros:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 });
@@ -30,7 +30,7 @@ router.get('/carros/:id', async (req, res) => {
         }
         res.json(carro);
     } catch (err) {
-        console.error('Erro ao obter carro por ID:', err);
+        console.error('Erro ao obter carro por ID:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 });
@@ -42,7 +42,7 @@ router.post('/carros', async (req, res) => {
         const carro = await Carro.create(novoCarro);
         res.status(201).json(carro);
     } catch (err) {
-        console.error('Erro ao adicionar carro:', err);
+        console.error('Erro ao adicionar carro:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 });
@@ -55,7 +55,7 @@ router.put('/carros/:id', async (req, res) => {
         const carro = await Carro.findByIdAndUpdate(id, dadosAtualizados, { new: true });
         res.json(carro);
     } catch (err) {
-        console.error('Erro ao atualizar carro:', err);
+        console.error('Erro ao atualizar carro:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 });
@@ -66,7 +66,7 @@ router.delete('/carros/:id', async (req, res) => {
         await Carro.findByIdAndDelete(id);
         res.sendStatus(204);
     } catch (err) {
-        console.error('Erro ao excluir carro:', err);
+        console.error('Erro ao excluir carro:', error);
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
 });
