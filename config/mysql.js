@@ -35,7 +35,7 @@ connection.connect((err) => {
                     console.error("Erro ao criar tabela de veiculos:", error);
                     return;
                 }
-                console.log("Tabela de veiculoss criada com sucesso");
+                console.log("Tabela de veiculos criada com sucesso");
 
             
                 const exemplosveiculos = [
@@ -51,10 +51,10 @@ connection.connect((err) => {
 
                 connection.query("INSERT INTO veiculos (modelo, ano, valor, fabricante) VALUES ?", [exemplosveiculos.map(veiculos => [veiculos.modelo, veiculos.ano, veiculos.valor, veiculos.fabricante])], (error, results) => {
                     if (error) {
-                        console.error("Erro ao inserir exemplos de veiculos:", error);
+                        console.error("Erro ao adicionar veiculos:", error);
                         return;
                     }
-                    console.log("Exemplos de veiculos inseridos com sucesso");
+                    console.log("Veiculos adicionado com sucesso");
                 });
             });
         } else {

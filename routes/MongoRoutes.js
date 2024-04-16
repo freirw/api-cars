@@ -35,7 +35,7 @@ router.get('/carros/:id', async (req, res) => {
     }
 });
 
-// Adicionar um novo carro
+
 router.post('/carros', async (req, res) => {
     try {
         const novoCarro = req.body;
@@ -47,7 +47,7 @@ router.post('/carros', async (req, res) => {
     }
 });
 
-// Atualizar um carro existente
+
 router.put('/carros/:id', async (req, res) => {
     try {
         const id = req.params.id;

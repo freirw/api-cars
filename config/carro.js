@@ -25,18 +25,18 @@ const example_cars = [
 async function inserirNovosCarros() {
     try {
         await Carro.insertMany(example_cars);
-        console.log('Exemplos de carros adicionados com sucesso!');
+        console.log('Carros adicionados.');
     } catch (err) {
-        console.error('Erro ao inserir exemplos de carros:', err);
+        console.error('Erro ao inserir carros:', err);
     }
 }
 
 
 mongoose.connect('mongodb://localhost:27017/desafio-cars', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        console.log('Conexão com o MongoDB estabelecida com sucesso');
+        console.log('Conexão com o MongoDB feita com sucesso');
         inserirNovosCarros();
     })
-    .catch(err => console.error('Erro ao conectar com o MongoDB:', error));
+    .catch(err => console.error('Erro ao conectar ao MongoDB:', error));
 
 module.exports = Carro; 
